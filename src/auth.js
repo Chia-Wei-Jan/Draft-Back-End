@@ -104,7 +104,7 @@ async function register(req, res) {
         await profile.save();
         res.status(200).send({ result: 'success', username: savedUser.username });
     } catch (error) {
-        res.status(500).send({ error: 'Internal server error' });
+        res.status(500).send({ error: 'Email already exists.' });
     }
 }
 
