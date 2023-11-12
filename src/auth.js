@@ -88,9 +88,9 @@ async function register(req, res) {
             salt,
             hash
         });
-
+        console.log('1');
         const savedUser = await user.save();
-
+        console.log('2');
         const profile = new Profile({
             username,
             email,
@@ -100,6 +100,7 @@ async function register(req, res) {
             headline: 'New user',
             avatar: 'https://i.pinimg.com/736x/af/98/92/af9892e7577db568594339ec1b8c1ee4.jpg'
         });
+
         await profile.save();
         res.status(200).send({ result: 'success', username: savedUser.username });
     } catch (error) {
@@ -148,34 +149,13 @@ async function changePassword(req, res) {
 
 // module.exports.isLoggedIn = isLoggedIn;
 
-// exports.isLoggedIn = isLoggedIn;
+exports.isLoggedIn = isLoggedIn;
 
-// exports.initialize = (app) => {
-//     app.post('/login', login);
-//     app.post('/register', register);
-//     app.put('/logout', isLoggedIn, logout);
-//     app.put('/password', isLoggedIn, changePassword);
-// };
-
-// exports.sessionUser = sessionUser;
-function setupRoutes(app) {
+exports.initialize = (app) => {
     app.post('/login', login);
     app.post('/register', register);
     app.put('/logout', isLoggedIn, logout);
     app.put('/password', isLoggedIn, changePassword);
-}
-
-const authFunctions = {
-    login,
-    logout,
-    register,
-    isLoggedIn
 };
 
-module.exports = {
-    setupRoutes,
-    authFunctions
-};
-
-
-
+exports.sessionUser = sessionUser;

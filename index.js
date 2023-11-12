@@ -10,7 +10,8 @@ const following = require('./src/following');
 
 const connectionString = 'mongodb+srv://cj35:cj35@eddie.nrfgvli.mongodb.net/?retryWrites=true&w=majority';
 
-const hello = (req, res) => res.send({ hello: 'This is the server of ricebook-cj35' });
+
+const hello = (req, res) => res.send({ hello: 'world' });
 
 
 mongoose.connect(connectionString)
@@ -29,12 +30,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.get('/', hello);
-
-auth.setupRoutes(app);
-// auth.initialize(app); 
-// profile(app);
-// article(app);
-// following(app);
+auth.initialize(app); 
+profile(app);
+article(app);
+following(app);
 
 
 // Get the port from the environment, i.e., Heroku sets it
