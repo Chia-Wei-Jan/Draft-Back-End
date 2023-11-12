@@ -148,13 +148,34 @@ async function changePassword(req, res) {
 
 // module.exports.isLoggedIn = isLoggedIn;
 
-exports.isLoggedIn = isLoggedIn;
+// exports.isLoggedIn = isLoggedIn;
 
-exports.initialize = (app) => {
+// exports.initialize = (app) => {
+//     app.post('/login', login);
+//     app.post('/register', register);
+//     app.put('/logout', isLoggedIn, logout);
+//     app.put('/password', isLoggedIn, changePassword);
+// };
+
+// exports.sessionUser = sessionUser;
+function setupRoutes(app) {
     app.post('/login', login);
     app.post('/register', register);
     app.put('/logout', isLoggedIn, logout);
     app.put('/password', isLoggedIn, changePassword);
+}
+
+const authFunctions = {
+    login,
+    logout,
+    register,
+    isLoggedIn
 };
 
-exports.sessionUser = sessionUser;
+module.exports = {
+    setupRoutes,
+    authFunctions
+};
+
+
+
