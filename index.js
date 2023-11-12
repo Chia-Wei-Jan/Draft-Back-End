@@ -11,7 +11,7 @@ const following = require('./src/following');
 const connectionString = 'mongodb+srv://cj35:cj35@eddie.nrfgvli.mongodb.net/?retryWrites=true&w=majority';
 
 
-const hello = (req, res) => res.send({ hello: 'world' });
+const hello = (req, res) => res.send({ hello: 'This is the server of ricebook-cj35' });
 
 
 mongoose.connect(connectionString)
