@@ -29,7 +29,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: 'http://localhost:4200',
+  origin: ['http://localhost:4200', 'https://ricebook-cj35.surge.sh'],
   credentials: true, // This allows the browser to send cookies
 }));
 
