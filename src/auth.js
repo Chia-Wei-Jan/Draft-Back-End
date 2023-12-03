@@ -13,6 +13,7 @@ let userObjs = {};
 
 async function isLoggedIn(req, res, next) {
     const sid = req.cookies[cookieKey];
+    console.log(req.cookies);
     console.log(sid);
     // no sid for cookie key
     if (!sid) {
