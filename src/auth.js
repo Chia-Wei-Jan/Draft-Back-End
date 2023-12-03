@@ -121,7 +121,7 @@ async function register(req, res) {
         const sessionKey = md5(SECRET_KEY + new Date().getTime() + user.username);
         sessionUser[sessionKey] = user.username; 
 
-        res.cookie(cookieKey, sessionKey, { maxAge: 3600 * 1000, httpOnly: true, sameSite: 'Lax' });
+        res.cookie(cookieKey, sessionKey, { maxAge: 3600 * 1000, httpOnly: true, secure: true, sameSite: 'None' });
 
         res.status(200).send({ result: 'success', username: savedUser.username });
     } catch (error) {
