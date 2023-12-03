@@ -13,14 +13,14 @@ let userObjs = {};
 
 async function isLoggedIn(req, res, next) {
     const sid = req.cookies[cookieKey];
-
+    console.log(sid);
     // no sid for cookie key
     if (!sid) {
         return res.status(401).send({ error: 'You are not logged in' });
     }
 
     let username = sessionUser[sid];
-
+    console.log(username);
     // no username mapped to sid
     if (!username) {
         return res.status(401).send({ error: 'Invalid session' });
