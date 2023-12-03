@@ -200,7 +200,7 @@ async function putPhone(req, res) {
 
 
 module.exports = (app) => {
-    app.get('/headline/:user?', isLoggedIn, getHeadline);
+    app.get('/headline/:user?', getHeadline);
     app.put('/headline', isLoggedIn, putHeadline);
     app.get('/email/:user?', isLoggedIn, getEmail);
     app.put('/email', isLoggedIn, putEmail);
