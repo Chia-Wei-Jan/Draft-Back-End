@@ -167,7 +167,7 @@ async function changePassword(req, res) {
 passport.use(new GoogleStrategy({
     clientID: '930081156832-va0vtlqfsjbq1be7j8jpagnl7pl0798v.apps.googleusercontent.com',
     clientSecret: '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',
-    callbackURL: "https://ricebook-cj35.surge.sh/auth/google/callback"
+    callbackURL: "https://ricebookserver-cj35-3b5c4f5224a3.herokuapp.com/auth/google/callback"
   },
   async function(accessToken, refreshToken, profile, done) {
       const googleId = profile.id;
