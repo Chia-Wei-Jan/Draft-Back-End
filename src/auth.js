@@ -193,11 +193,11 @@ function initializeGoogleAuth(app) {
         passport.authenticate('google', { scope: ['profile', 'email'] }));
 
     app.get('/auth/google/callback', 
-        passport.authenticate('google', { failureRedirect: 'http://localhost:4200/login' }),
+        passport.authenticate('google', { failureRedirect: 'https://ricebook-cj35.surge.sh/login' }),
         function(req, res) { 
             const username = req.user.username;
 
-            res.redirect('http://localhost:4200/main?username=${req.user.username}');
+            res.redirect('https://ricebook-cj35.surge.sh/main?username=${req.user.username}');
         });
 }
 
